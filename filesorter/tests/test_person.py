@@ -1,6 +1,5 @@
 """Test suite for the person module."""
 
-import pytest
 
 from filesorter.person import Person
 
