@@ -21,11 +21,13 @@ def test_constant_values_for_person_attributes():
     for _, value in vars(constants.person_attributes).items():
         assert value is not None
 
+
 def test_constant_values_for_file_types():
     """Ensure that all of the file_types constants have a value."""
     assert len(vars(constants.file_types).items()) > 0
     for _, value in vars(constants.file_types).items():
         assert value is not None
+
 
 def test_constant_values_for_sorting_options():
     """Ensure that all of the sorting_options constants have a value."""
