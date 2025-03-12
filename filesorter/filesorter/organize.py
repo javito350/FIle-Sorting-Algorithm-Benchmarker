@@ -10,6 +10,7 @@ from filesorter.profile import timer
 sys.modules[__name__]
 
 
+@timer("Time to Sort Person Data Using Iterative Bubble sort (ms)")
 def sort_persons_bubblesort(
     persons: List[Person], attribute: str
 ) -> List[Person]:
@@ -60,6 +61,7 @@ def partition(
     return i + 1
 
 
+@timer("Time to Sort Person Data Using Iterative Bubble sort (ms)")
 def sort_persons(
     persons: List[Person], attribute: str, approach: str
 ) -> List[Person]:
@@ -88,6 +90,7 @@ def sort_persons(
         raise ValueError(f"Unknown sorting approach: {approach}")
 
 
+@timer("Time to Sort Person Data Using Iterative Bubble sort (ms)")
 def sort_persons_lambdafunction(
     persons: List[Person], attribute: str
 ) -> List[Person]:
@@ -97,6 +100,7 @@ def sort_persons_lambdafunction(
     return sorted(persons, key=lambda person: getattr(person, attribute))
 
 
+@timer("Time to Sort Person Data Using Iterative Bubble sort (ms)")
 def sort_persons_attrgetter(
     persons: List[Person], attribute: str
 ) -> List[Person]:
@@ -106,6 +110,7 @@ def sort_persons_attrgetter(
     return sorted(persons, key=attrgetter(attribute))
 
 
+@timer("Time to Sort Person Data Using Iterative Custom Comperator (ms)")
 def sort_persons_customcompare(
     persons: List[Person], attribute: str
 ) -> List[Person]:
