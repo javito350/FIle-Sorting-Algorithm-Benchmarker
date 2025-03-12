@@ -27,6 +27,8 @@ person_attributes = PersonAttributes(
 class PersonIndex:
     """Define the PersonIndex dataclass for constant(s)."""
 
+    """Define the index locations for the person."""
+
     Name: int
     Country: int
     Phone_Number: int
