@@ -7,6 +7,7 @@ from filesorter.person import Person
 
 def extract_person_data(data: str) -> List[Person]:
     """Extract a specified data column from the provided textual contents."""
+    """All attributes are extracted from the CSV file."""
     person_data = []  # List to store extracted person records
     for line in csv.reader(
         data.splitlines(),
