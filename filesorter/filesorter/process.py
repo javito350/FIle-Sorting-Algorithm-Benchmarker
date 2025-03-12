@@ -33,7 +33,13 @@ def extract_person_data(data: str) -> List[Person]:
         current_job = line[person_index.Job]
         current_email = line[person_index.Email]
         # Check if all attributes are present
-        if None in (current_name, current_country, current_phone_number, current_job, current_email):
+        if None in (
+            current_name,
+            current_country,
+            current_phone_number,
+            current_job,
+            current_email,
+        ):
             continue
         # construct a new instance of the Person class that contains all
         # of the attributes that were extracted from the CSV file
@@ -42,7 +48,7 @@ def extract_person_data(data: str) -> List[Person]:
             current_country,
             current_phone_number,
             current_job,
-            current_email
+            current_email,
         )
         # add the person to the list of people that have been extracted
         person_data.append(row)

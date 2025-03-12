@@ -12,6 +12,7 @@ sys.modules[__name__]
 # TODO: Consider using the timer decorator so that you
 # can easily collect performance data for the sorting functions
 
+
 def sort_persons_bubblesort(
     persons: List[Person], attribute: str
 ) -> List[Person]:
@@ -19,12 +20,16 @@ def sort_persons_bubblesort(
     n = len(persons)
     for i in range(n):
         for j in range(0, n - i - 1):
-            if getattr(persons[j], attribute) > getattr(persons[j + 1], attribute):
+            if getattr(persons[j], attribute) > getattr(
+                persons[j + 1], attribute
+            ):
                 persons[j], persons[j + 1] = persons[j + 1], persons[j]
     return persons
 
 
-@timer("Time to Sort Person Data Using Iterative Quick Sort (ms)") # from what he said in class (not sure if i catch up everything but i think is something like that): this function is important, because in the other function like (sort_person,sort_persons_lambdafunction...) where u call the timer, u call this function (sort_persons_quicksort), store it in process.py performance
+@timer(
+    "Time to Sort Person Data Using Iterative Quick Sort (ms)"
+)  # from what he said in class (not sure if i catch up everything but i think is something like that): this function is important, because in the other function like (sort_person,sort_persons_lambdafunction...) where u call the timer, u call this function (sort_persons_quicksort), store it in process.py performance
 def sort_persons_quicksort(
     persons: List[Person], attribute: str
 ) -> List[Person]:
@@ -40,7 +45,10 @@ def sort_persons_quicksort(
             stack.append((pivot_index + 1, high))
     return persons
 
-def partition(persons: List[Person], low: int, high: int, attribute: str) -> int:
+
+def partition(
+    persons: List[Person], low: int, high: int, attribute: str
+) -> int:
     pivot = getattr(persons[high], attribute)
     i = low - 1
     attributes = [getattr(person, attribute) for person in persons]
@@ -103,6 +111,7 @@ def sort_persons_customcompare(
             return 1
         else:
             return 0
+
     if not all(hasattr(person, attribute) for person in persons):
         raise ValueError(f"Attribute {attribute} is not valid for sorting.")
     return sorted(persons, key=functools.cmp_to_key(compare_persons))
