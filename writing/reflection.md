@@ -120,6 +120,7 @@ Provide the complete command-line for your use of the `filesorter` program
 
 ```output
 🧮 Reading in the data from the specified file input\people.txt
+⏱ Time to read the data in 0.02 seconds
 
 🚀 Parsing the data file and transforming it into people objects
 
@@ -128,14 +129,16 @@ Provide the complete command-line for your use of the `filesorter` program
 💥 Using a sorting approach called lambdafunction
 
 ✨ Saving the sorted people data to the file output\people.txt
+⏱ Time to write the data 0.17 seconds
 
-🔬 Time to Sort Person Data Using Iterative Bubble sort (ms): 62.46 ms
+🔬 Time to Sort Person Data Using Iterative Bubble sort (ms): 33.23 ms
 ```
 
 #### Command: poetry run filesorter --attribute job  --approach lambdafunction --input-file input/people.txt --output-file output/people.txt
 
-'''output
+```output
 🧮 Reading in the data from the specified file input\people.txt
+⏱ Time to read the data in 0.02 seconds
 
 🚀 Parsing the data file and transforming it into people objects
 
@@ -144,14 +147,16 @@ Provide the complete command-line for your use of the `filesorter` program
 💥 Using a sorting approach called lambdafunction
 
 ✨ Saving the sorted people data to the file output\people.txt
+⏱ Time to write the data 0.20 seconds
 
-🔬 Time to Sort Person Data Using Iterative Bubble sort (ms): 35.35 ms
-'''
+🔬 Time to Sort Person Data Using Iterative Bubble sort (ms): 32.90 ms
+```
 
 #### Command: poetry run filesorter --attribute name  --approach customcompare --input-file input/people.txt --output-file output/people.txt
 
 ```output
-🧮 Reading in the data from the specified file input\people.txt
+ Reading in the data from the specified file input\people.txt
+⏱ Time to read the data in 0.02 seconds
 
 🚀 Parsing the data file and transforming it into people objects
 
@@ -160,14 +165,16 @@ Provide the complete command-line for your use of the `filesorter` program
 💥 Using a sorting approach called customcompare
 
 ✨ Saving the sorted people data to the file output\people.txt
+⏱ Time to write the data 0.16 seconds
 
-🔬 Time to Sort Person Data Using Iterative Custom Comperator (ms): 193.01 ms
+🔬 Time to Sort Person Data Using Iterative Custom Comperator (ms): 181.31 ms
 ```
 
 #### Command: poetry run filesorter --attribute job  --approach customcompare --input-file input/people.txt --output-file output/people.txt
 
 ```output
 🧮 Reading in the data from the specified file input\people.txt
+⏱ Time to read the data in 0.02 seconds
 
 🚀 Parsing the data file and transforming it into people objects
 
@@ -175,25 +182,24 @@ Provide the complete command-line for your use of the `filesorter` program
 
 💥 Using a sorting approach called customcompare
 
-✨ Saving the sorted people data to the file output\people
+✨ Saving the sorted people data to the file output\people.txt
+⏱ Time to write the data 0.16 seconds
 
-🔬 Time to Sort Person Data Using Iterative Custom Comperator (ms): 232.04 ms
+🔬 Time to Sort Person Data Using Iterative Custom Comperator (ms): 163.17 ms
 ```
 
 #### Command: poetry run filesorter --attribute phone_number  --approach customcompare --input-file input/people.txt --output-file output/people.txt
 
 ```output
 🧮 Reading in the data from the specified file input\people.txt
+⏱ Time to read the data in 0.02 seconds
 
 🚀 Parsing the data file and transforming it into people objects
 
 🏃 Sorting the people according to the phone_number
 
 💥 Using a sorting approach called customcompare
-
-✨ Saving the sorted people data to the file output\people
-
-🔬 Time to Sort Person Data Using Iterative Custom Comperator (ms): 190.66 ms
+🔬 Time to Sort Person Data Using Iterative Custom Comperator (ms): 212.28 ms
 ```
 
 ## Experiment Design
