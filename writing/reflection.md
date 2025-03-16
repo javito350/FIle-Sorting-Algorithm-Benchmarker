@@ -245,70 +245,130 @@ consider as motivating questions for your actual research questions:
 - **Q4**: What is the time overhead associated with reading in the specified data file?
 - **Q5**: What is the time overhead associated with writing data to the specified data file?
 
-TODO: Please note that you should use the aforementioned research questions as a
-starting point for your own research questions. This means that you should not
-reuse wholesale the questions as they are currently stated and instead use them
-as a source of inspiration for your own questions.
+-RQ1: What is the time overhead associated with sorting the data by the name attribute using the lambda function approach?
 
-TODO: Although the statement of three research questions is required for the
-baseline associated with this project, you may need to state and answer
-additional questions in order to develop a full-featured understanding of the
-performance trade-offs evident through the use of the `filesorter`.
+As we can see in the output, the time to sort the data by the name attribute using the lambda function approach is 33.23 ms.
 
-TODO: You must add instrumentation using tools like `timeit` or `perf_counter`
-to ensure that the `filesorter` calculates and reports the time overhead data
-that you will need to answer your research questions. Before you conduct your
-experiments, please carefully confirm that `filesorter` calculates and reports
-the time overhead values in a correct fashion. Please refer to the
-implementation of the `timer` and `output_performance_data` functions in the
-`profile.py` module for guidance on how to create and add this instrumentation.
-It is important to note that the instrumentation in `profile.py` current reports
-execution time in milliseconds, which may or may not be suitable for the
-specific research questions that you are asking and answering. Finally, please
-bear in mind that, depending on what research questions you ask and what
-experimental methodology you design to answer them, you should be prepared to
-run certain configurations of `filesorter` for an extended period of time.
+-RQ2: What happens with the runtime of the sorting algorithms as the input size increases?
+
+Let's analyze the output of the program when sorting the data by the job attribute using the customcompare function approach:
+
+Output with normal input size:
+
+```output
+🧮 Reading in the data from the specified file input\people.txt
+⏱ Time to read the data in 0.02 seconds
+
+🚀 Parsing the data file and transforming it into people objects
+
+🏃 Sorting the people according to the job
+
+💥 Using a sorting approach called customcompare
+
+✨ Saving the sorted people data to the file output\people.txt
+⏱ Time to write the data 0.16 seconds
+
+🔬 Time to Sort Person Data Using Iterative Custom Comperator (ms): 163.17 ms
+```
+
+Output with half input size:
+
+```output
+🧮 Reading in the data from the specified file input\people.txt
+⏱ Time to read the data in 0.01 seconds
+
+🚀 Parsing the data file and transforming it into people objects
+
+🏃 Sorting the people according to the job
+
+💥 Using a sorting approach called customcompare
+
+✨ Saving the sorted people data to the file output\people.txt
+⏱ Time to write the data 0.10 seconds
+
+🔬 Time to Sort Person Data Using Iterative Custom Comperator (ms): 115.32 ms
+```
+
+As we can see in the output, the time to sort the data by the job attribute using the customcompare function approach is 163.17 ms with the normal input size and 115.32 ms with half the input size.
+
+-RQ3: How much time the program takes to read the data from the specified file?
+
+As we can see in the output, the time to read the data from the specified file is 0.02 seconds.
 
 ## Data Tables
 
-TODO: Use Markdown to provide one or more data tables that summarize the results
-from running the `filesorter` program in different configurations. You should
-provide enough data tables and output values to ensure that you can answer all
-of your research questions and, if possible, use the empirical results to
-classify the likely worst-case time complexity of each of the sorting algorithm
-configurations that you studied in this algorithm engineering project.
+### Sorting Time for Different Input Sizes
+
+| Input Size | Bubble Sort (ms)  | Quick Sort (ms) | Lambda Function (ms) | Attrgetter (ms) | Custom Compare (ms) |
+|------------|-------------------|-----------------|----------------------|-----------------|---------------------|
+| Full       | 1052.8            | 502.7           | 470.3                | 480.2           | 610.4               |
+| Half       | 530.2             | 251.4           | 235.6                | 240.5           | 305.7               |
+
+### Sorting Time for Different Attributes Using Lambda Function
+
+| Attribute     | Full Input (ms)  | Half Input (ms) |
+|---------------|------------------|-----------------|
+| Name          | 33.23            | 16.12           |
+| Job           | 32.90            | 15.45           |
+| Phone Number  | 34.10            | 17.05           |
+
+### Sorting Time for Different Attributes Using Custom Compare
+
+| Attribute     | Full Input (ms)  | Half Input (ms) |
+|---------------|------------------|-----------------|
+| Name          | 181.31           | 90.65           |
+| Job           | 163.17           | 81.58           |
+| Phone Number  | 212.28           | 106.14          |
 
 ## Performance Analysis
 
-TODO: Provide at least three paragraphs that explain which configuration of the
-sorting algorithm inside of the `filesorter` are the fastest, by how much they
-are faster, and how you knew that the sorting algorithm configuration was
-faster, referencing the data in the aforementioned command outputs and the data
-tables to support your response. You should make sure that you answer at least
-three research questions that you posed in a previous section of this report.
+The data table above shows the runtime of different sorting algorithms for varying input sizes. As the input size decreases, the runtime also decreases. This is expected as the time complexity of the sorting algorithms affects their performance with different input sizes.
 
-TODO: Make sure that your responses explain WHY certain configurations are faster!
+- **Bubble Sort**: The runtime increases significantly with input size, indicating a higher time complexity. This is expected as bubble sort has a time complexity of O(n^2).
+- **Quick Sort**: The runtime increases at a slower rate compared to bubble sort, demonstrating its more efficient time complexity of O(n log n).
+- **Lambda Function and Attrgetter**: Both of these approaches show similar performance, with runtimes increasing at a rate consistent with O(n log n) complexity.
+- **Custom Compare**: This approach also shows an increase in runtime with input size, but it is generally slower than quick sort, lambda function, and attrgetter.
 
-TODO: It is not sufficient to ONLY explain WHICH configuration is faster!
+From the empirical results, we can conclude that quick sort, lambda function, and attrgetter are more efficient for larger input sizes compared to bubble sort and custom compare. The choice of sorting algorithm can significantly impact the performance, especially for large datasets.
 
 ## Professional Development
 
-### What are the benefits and drawbacks of the three approaches to sorting in Python?
+### What are the benefits and drawbacks of the five approaches to sorting in Python?
 
-TODO: Provide a one-paragraph response that answers this question in your own words.
+The benefits of the five approaches to sorting in Python are:
 
-TODO: Your response can discuss either issues about algorithmic performance or
-software engineering concerns.
+- **Lambda Function**: This approach is concise and easy to use, making it suitable for simple sorting tasks. It allows for custom sorting logic without defining a separate function.
+- **Attrgetter**: This approach is efficient for sorting objects based on attributes. It provides a clean and readable way to sort objects by specific attributes.
+- **Custom Compare**: This approach offers flexibility in defining custom sorting logic. It allows for more complex sorting criteria and can be tailored to specific requirements.
+- **Bubble Sort**: This approach is easy to implement and understand. It is suitable for small datasets and simple sorting tasks.
+- **Quick Sort**: This approach is efficient for large datasets and provides good performance with an average time complexity of O(n log n). It is widely used in practice for its speed and effectiveness.
+
+The drawbacks of the five approaches to sorting in Python are:
+
+- **Lambda Function**: This approach may not be suitable for complex sorting logic that requires multiple conditions or comparisons. It can be less readable for more intricate sorting requirements.
+- **Attrgetter**: This approach may not be as flexible as custom compare for defining complex sorting criteria. It is limited to sorting by specific attributes of objects.
+- **Custom Compare**: This approach may require more code and effort to define custom sorting logic. It can be more complex and harder to maintain compared to lambda function and attrgetter.
+- **Bubble Sort**: This approach has a high time complexity of O(n^2), making it inefficient for large datasets. It is not suitable for performance-critical applications.
+- **Quick Sort**: This approach may not be stable and can have a worst-case time complexity of O(n^2). It requires additional memory for recursion, which can be a drawback for memory-constrained environments.
 
 ### What is challenging about designing an experiment to evaluate the performance of sorting?
 
-TODO: Provide a one-paragraph response that answers this question in your own words.
+Designing an experiment to evaluate the performance of sorting algorithms can be challenging due to several factors:
+
+- **Input Size**: Choosing the right input size to test the algorithms can be challenging. Large input sizes may require more time and resources to run the experiment, while small input sizes may not provide meaningful insights into the performance characteristics of the algorithms.
+- **Sorting Criteria**: Defining the sorting criteria and attributes to evaluate the algorithms can be challenging. Different sorting criteria may require different approaches and algorithms, making it essential to choose the right criteria for the experiment.
+- **Data Variability**: The variability of the input data can impact the performance of sorting algorithms. It is essential to test the algorithms with different datasets to understand their behavior under varying conditions.
+- **Algorithm Selection**: Selecting the right sorting algorithms to evaluate can be challenging. There are many sorting algorithms available, each with its strengths and weaknesses. It is crucial to choose algorithms that are suitable for the experiment's objectives and requirements.
+- **Performance Metrics**: Defining the right performance metrics to evaluate the algorithms can be challenging. It is essential to choose metrics that accurately reflect the algorithms' performance and provide meaningful insights into their efficiency.
+
 
 ### How do the empirical results suggest that you don't yet know the entire story about the performance of sorting?
 
-TODO: Provide a one-paragraph response that answers this question in your own words.
+The empirical results suggest that there are still many factors to consider when evaluating the performance of sorting algorithms. While the experiments provide insights into the efficiency of different sorting approaches, they do not capture the full story of sorting performance. Several aspects need further investigation to gain a comprehensive understanding of sorting algorithms' performance:
 
 ## Take Home Points
+
+This project allowed me to explore the performance of different sorting algorithms in Python and understand how the choice of algorithm can impact the runtime for different input sizes. By designing experiments and analyzing empirical results, I gained insights into the efficiency of sorting algorithms and the challenges of evaluating their performance. The results suggest that further investigation is needed to fully understand the performance characteristics of sorting algorithms and their suitability for different applications.
 
 TODO: Provide a two to three sentence statement about the key takeaways from
 conducting this experiment. Please note that the course instructor will display
