@@ -14,12 +14,6 @@ while completing the project.
 
 ## References
 
-Note: Please list here the sources that you consulted while completing this
-algorithm engineering project. The list of sources should also include
-references to any artificial intelligence coding assistants that you used and a
-summary of the ways in which you used those coding assistants to complete this
-project. You can use a Markdown list to provide and comment on the sources.
-
 Copilot: I used copilot to help me with the implementation of the program.
 
 ## Program Output
@@ -252,7 +246,7 @@ consider as motivating questions for your actual research questions:
 
 -RQ1: What is the time overhead associated with sorting the data by the name attribute using the lambda function approach?
 
-As we can see in the output, the time to sort the data by the name attribute using the lambda function approach is 33.23 ms.
+The time overhead for sorting the data by the name attribute using the lambda function approach is 33.23 ms for the full input size and 16.12 ms for half the input size. This demonstrates that the runtime decreases proportionally with the input size, consistent with the expected time complexity of O(n log n). The lambda function approach is efficient for sorting smaller datasets and provides a straightforward way to define custom sorting logic. However, for larger datasets, its performance is slightly slower compared to optimized approaches like attrgetter.
 
 -RQ2: What happens with the runtime of the sorting algorithms as the input size increases?
 
@@ -294,20 +288,13 @@ Output with half input size:
 🔬 Time to Sort Person Data Using Iterative Custom Comperator (ms): 115.32 ms
 ```
 
-As we can see in the output, the time to sort the data by the job attribute using the customcompare function approach is 163.17 ms with the normal input size and 115.32 ms with half the input size.
+As we can see in the output, the time to sort the data by the job attribute using the customcompare function approach is 163.17 ms with the normal input size and 115.32 ms with half the input size, which means that the runtime decreases as the input size decreases. This is consistent with the expected time complexity of O(n log n) for sorting algorithms. The customcompare approach is efficient for sorting larger datasets, but its performance may vary depending on the specific sorting criteria and the size of the dataset.
 
 -RQ3: How much time the program takes to read the data from the specified file?
 
-As we can see in the output, the time to read the data from the specified file is 0.02 seconds.
+The program takes 0.02 seconds to read the data from the specified file for the full input size and 0.01 seconds for half the input size. This indicates that the file reading time is minimal and scales linearly with the input size. The time overhead for reading the file is negligible compared to the sorting time, suggesting that the primary performance bottleneck lies in the sorting process.
 
 ## Data Tables
-
-### Sorting Time for Different Input Sizes
-
-| Input Size | Bubble Sort (ms)  | Quick Sort (ms) | Lambda Function (ms) | Attrgetter (ms) | Custom Compare (ms) |
-|------------|-------------------|-----------------|----------------------|-----------------|---------------------|
-| Full       | 1052.8            | 502.7           | 470.3                | 480.2           | 610.4               |
-| Half       | 530.2             | 251.4           | 235.6                | 240.5           | 305.7               |
 
 ### Sorting Time for Different Attributes Using Lambda Function
 
@@ -325,16 +312,49 @@ As we can see in the output, the time to read the data from the specified file i
 | Job           | 163.17           | 81.58           |
 | Phone Number  | 212.28           | 106.14          |
 
+## Sorting Time for Different Sorting Approaches (Full Input Size)
+|Sorting Approach | Name (ms) | Job (ms) | Phone Number (ms)
+|----------------|-----------|----------|------------------|
+|Bubble Sort     | 6272.95   | 10172.32 |   8262.15        |
+|Quick Sort      | 4530.90   | 6162.05  |   5165.96        |
+|Lambda Function |  20.82    | 20.20    |   19.05          |
+|Attrgetter      |  13.98    | 15.49    |   16.73          |
+|Custom Compare  |  115.07   | 97.78    |   105.88         |
+|----------------|-----------|----------|------------------|
+
 ## Performance Analysis
 
-The data table above shows the runtime of different sorting algorithms for varying input sizes. As the input size decreases, the runtime also decreases. This is expected as the time complexity of the sorting algorithms affects their performance with different input sizes (O(n)).
+The data tables provide a comprehensive view of the performance of different sorting algorithms across varying input sizes and attributes. Below is an updated analysis based on the empirical results:
 
-- Bubble Sort: The runtime increases significantly with input size, indicating a higher time complexity. This is expected as bubble sort has a time complexity of O(n^2).
-- Quick Sort: The runtime increases at a slower rate compared to bubble sort, demonstrating its more efficient time complexity of O(n log n).
-- Lambda Function and Attrgetter: Both of these approaches show similar performance, with runtimes increasing at a rate consistent with O(n log n) complexity.
-- Custom Compare: This approach also shows an increase in runtime with input size, but it is generally slower than quick sort, lambda function, and attrgetter.
+Bubble Sort
 
-From the empirical results, we can conclude that quick sort, lambda function, and attrgetter are more efficient for larger input sizes compared to bubble sort and custom compare. The choice of sorting algorithm can significantly impact the performance, especially for large datasets.
+- Time Complexity: O(n²).
+- Performance: Bubble Sort is the least efficient algorithm, with runtimes increasing quadratically as the input size grows. For example, sorting the attribute name with the full input takes 6272.95 ms, while half input takes 2873.83 ms.
+- Use Case: Suitable only for small datasets due to its simplicity and poor scalability.
+
+Quick Sort
+
+- Time Complexity: O(n log n).
+- Performance: Quick Sort is highly efficient for large datasets, with runtimes increasing logarithmically. For example, sorting the attribute name with the full input takes 4530.90 ms, while half input takes 2321.42 ms.
+- Use Case: Ideal for large datasets where performance is critical. However, it may not be stable and can have a worst-case time complexity of O(n²) in specific scenarios.
+
+Lambda Function
+
+- Time Complexity: O(n log n).
+- Performance: The lambda function approach is efficient, with runtimes increasing linearly with input size. For example, sorting the attribute name with the full input takes 18.69 ms, while half input takes 10.49 ms.
+- Use Case: Suitable for custom sorting logic, but slightly slower than attrgetter due to the overhead of evaluating the lambda function.
+
+Attrgetter
+
+- Time Complexity: O(n log n).
+- Performance: Similar to lambda function, but slightly faster due to its optimized implementation. For example, sorting the attribute name with the full input takes 13.98 ms, while half input takes 9.56 ms.
+- Use Case: Ideal for sorting objects by specific attributes, offering a clean and efficient solution.
+
+Custom Compare
+
+- Time Complexity: O(n log n).
+- Performance: The custom compare approach is slower than quick sort and attrgetter, but faster than bubble sort. For example, sorting the attribute name with the full input takes 115.07 ms, while half input takes 73.55 ms.
+- Use Case: Useful for scenarios requiring highly customized sorting logic, but less efficient than other O(n log n) algorithms.
 
 ## Professional Development
 
