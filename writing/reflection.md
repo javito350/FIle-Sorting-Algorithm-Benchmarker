@@ -232,18 +232,6 @@ each sorting algorithm configuration produces the correct output file.
 
 ## Research Questions
 
-Clearly state at least three research questions that you want to ask and
-answer by using the `filesorter` program. You should provide the research
-questions in a list that starts with "RQ" and ends with a question mark. Here
-are some high-level questions, designated with the letter **Q**, that you may
-consider as motivating questions for your actual research questions:
-
-- **Q1**: What is the running time and/or complexity class of the sorting algorithm provided by `sorted`?
-- **Q2**: How does the runtime of the sorting algorithms change as the input size increases?
-- **Q3**: How is it possible to systematically increase the size of the specified data file?
-- **Q4**: What is the time overhead associated with reading in the specified data file?
-- **Q5**: What is the time overhead associated with writing data to the specified data file?
-
 -RQ1: What is the time overhead associated with sorting the data by the name attribute using the lambda function approach?
 
 The time overhead for sorting the data by the name attribute using the lambda function approach is 33.23 ms for the full input size and 16.12 ms for half the input size. This demonstrates that the runtime decreases proportionally with the input size, consistent with the expected time complexity of O(n log n). The lambda function approach is efficient for sorting smaller datasets and provides a straightforward way to define custom sorting logic. However, for larger datasets, its performance is slightly slower compared to optimized approaches like attrgetter.
