@@ -73,27 +73,27 @@ Output from running the program on ubuntu through github actions:
 ```text
 Displaying System Information
 
-╭─────────────────────────────────────────────────────── System Information ───────────────────────────────────────────────────────╮
-│ ╭──────────────────┬───────────────────────────────────────────────────────────────────────────────────────────────────────────╮ │
-│ │ System Parameter │ Parameter Value                                                                                           │ │
-│ ├──────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────────────────┤ │
-│ │ battery          │ No battery is present                                                                                     │ │
-│ │ cpu              │ x86_64                                                                                                    │ │
-│ │ cpucores         │ 2                                                                                                         │ │
-│ │ cpufrequencies   │ Min: 0.0 Mhz, Max: 0.0 Mhz                                                                                │ │
-│ │ datetime         │ 2025-01-24 02:39:20                                                                                       │ │
-│ │ disk             │ Using 47.39 GB of 71.61 GB                                                                                │ │
-│ │ hostname         │ fv-az1131-112                                                                                             │ │
-│ │ memory           │ 7.75 GB                                                                                                   │ │
-│ │ platform         │ Linux                                                                                                     │ │
-│ │ pythonversion    │ 3.12.8                                                                                                    │ │
-│ │ runningprocesses │ 129                                                                                                       │ │
-│ │ swap             │ Total: 3.00 GB, Used: 0.00 GB, Free: 3.00 GB                                                              │ │
-│ │ system           │ 64bit                                                                                                     │ │
-│ │ systemload       │ Average Load: 0.61, CPU Utilization: Unknown                                                              │ │
-│ │ virtualenv       │ Not Available                                                                                             │ │
-│ ╰──────────────────┴───────────────────────────────────────────────────────────────────────────────────────────────────────────╯ │
-╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────────────────────────  System Information Panel ───────────────────────────────────────────╮
+│ ╭──────────────────┬────────────────────────────────────────────────────────────────────────────────────────╮ │
+│ │ System Parameter │ Parameter Value                                                                        │ │
+│ ├──────────────────┼────────────────────────────────────────────────────────────────────────────────────────┤ │
+│ │ battery          │ No battery is present                                                                  │ │
+│ │ cpu              │ x86_64                                                                                 │ │
+│ │ cpucores         │ 2                                                                                      │ │
+│ │ cpufrequencies   │ Min: 0.0 Mhz, Max: 0.0 Mhz                                                             │ │
+│ │ datetime         │ 2025-01-24 02:39:20                                                                    │ │
+│ │ disk             │ Using 47.39 GB of 71.61 GB                                                             │ │
+│ │ hostname         │ fv-az1131-112                                                                          │ │
+│ │ memory           │ 7.75 GB                                                                                │ │
+│ │ platform         │ Linux                                                                                  │ │
+│ │ pythonversion    │ 3.12.8                                                                                 │ │
+│ │ runningprocesses │ 129                                                                                    │ │
+│ │ swap             │ Total: 3.00 GB, Used: 0.00 GB, Free: 3.00 GB                                           │ │
+│ │ system           │ 64bit                                                                                  │ │
+│ │ systemload       │ Average Load: 0.61, CPU Utilization: Unknown                                           │ │
+│ │ virtualenv       │ Not Available                                                                          │ │
+│ ╰──────────────────┴────────────────────────────────────────────────────────────────────────────────────────╯ │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 
 
 Displaying Benchmark Results
