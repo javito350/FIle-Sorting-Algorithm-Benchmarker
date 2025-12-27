@@ -1,4 +1,4 @@
-# FileSorter — Simple README
+# FileSorter
 
 ## What is FileSorter?
 FileSorter is a small project to test how fast different sorting methods work. It reads text records, makes a `Person` object for each record, and sorts the objects.
@@ -45,10 +45,3 @@ The program shows time for each phase: read, parse, sort, and write. Use these t
 1. Fork the repo and make a new branch.
 2. Add tests for new features.
 3. Run `poetry run pytest` and fix any issues before a pull request.
-
-## Author
-Javier Bejarano Jimenez
-
----
-
-If you want, I can also make a short 1–2 line GitHub "About" blurb, or open a pull request with this simplified README.
